@@ -1,7 +1,14 @@
 # Gitlab in Docker (compose)
 
+# 1. Clone this repo
+```
+git clone git@github.com:rboonzaijer/gitlab-docker.git
 
-# 1. Setup
+cd gitlab-docker
+```
+
+
+# 2. Setup
 Create the .env file, and use your OWN data
 ```
 cp .env.example .env
@@ -13,7 +20,7 @@ chmod +x do_*.sh
 ```
 
 
-# 2. First run
+# 3. First run
 ```
 docker compose up -d
 ```
@@ -32,7 +39,7 @@ You can run the post_setup now (optional, you can also do this in the UI)
 ```
 
 
-# 3. Backup/Restore
+# 4. Backup/Restore
 We want to backup the data in the volumes. These files will be created:
 - backup_gitlab_config.tar.bz2
 - backup_gitlab_logs.tar.bz2
