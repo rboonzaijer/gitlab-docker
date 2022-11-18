@@ -31,12 +31,17 @@ You can keep checking the status with:
 ```
 docker ps
 ```
-When you see (healthy) in the status column, then Gitlab is running.
+When you see (healthy) in the status column, then Gitlab is running: http://localhost:30000 user=root, pass=(see .env file)
 
-You can run the post_setup now (optional, you can also do this in the UI)
+Notice the warning "Anyone can register for an account.", you can run the post_setup now to automatically disable this (optional, this can also be done in the UI).
+
+You will get a test-mail when it's completed (or an error if you did not change the 'test_email_to', of misconfigured your smtp settings).
+
+Note: if you change your .env file, run 'docker-compose up -d' to recreate the container, then wait until the container is 'healthy' again ('docker ps')
 ```
 ./do_post_setup.sh
 ```
+After this command: refresh the UI and the warning is gone. Also, you've got a mail if SMTP was properly configured.
 
 
 # 4. Backup/Restore
