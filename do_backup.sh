@@ -16,7 +16,7 @@ echo "-> docker-compose down"
 docker-compose down
 
 # loop through each volume
-for VOLUME in gitlab_config gitlab_logs gitlab_data
+for VOLUME in gitlab_config gitlab_logs gitlab_data gitlab_lfs
 do
     echo "-> backup volume $VOLUME"
 	docker run --rm --name="docker_volume_backup_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup backup > ${TARGETDIR}backup_$VOLUME.tar.bz2

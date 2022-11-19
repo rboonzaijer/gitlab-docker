@@ -15,6 +15,7 @@ services:
         sidekiq['max_concurrency'] = ${sidekiq_max_concurrency}
         gitlab_rails['time_zone'] = '${time_zone}'
         gitlab_rails['lfs_enabled'] = ${lfs_enabled}
+        gitlab_rails['lfs_storage_path'] = '/mnt/storage/lfs-objects'
         
         #mail
         gitlab_rails['smtp_enable'] = ${smtp_enable}
@@ -44,6 +45,7 @@ services:
       - gitlab_config:/etc/gitlab
       - gitlab_logs:/var/log/gitlab
       - gitlab_data:/var/opt/gitlab
+      - gitlab_lfs:/mnt/storage/lfs-objects
     shm_size: '256m'
 
 volumes:
@@ -53,3 +55,5 @@ volumes:
     name: gitlab_logs
   gitlab_data:
     name: gitlab_data
+  gitlab_lfs:
+    name: gitlab_lfs

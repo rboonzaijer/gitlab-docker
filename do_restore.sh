@@ -19,7 +19,7 @@ then
 	docker-compose down
 
 	# loop through each volume
-	for VOLUME in gitlab_config gitlab_logs gitlab_data
+	for VOLUME in gitlab_config gitlab_logs gitlab_data gitlab_lfs
 	do
 		echo "-> restore volume $VOLUME"
 		docker run -i --rm --name="docker_volume_restore_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup restore -f < ${TARGETDIR}backup_$VOLUME.tar.bz2 # -f to force
