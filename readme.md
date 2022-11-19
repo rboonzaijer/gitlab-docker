@@ -35,9 +35,9 @@ When you see (healthy) in the status column, then Gitlab is running: http://loca
 
 Notice the warning "Anyone can register for an account.", you can run the post_setup now to automatically disable this (optional, this can also be done in the UI).
 
-You will get a test-mail when it's completed (or an error if you did not change the 'test_email_to', of misconfigured your smtp settings).
+You will get a test-mail when it's completed (or an error if you did not change the 'test_email_to', of misconfigured your smtp settings). Note: the default user gets an email to confirm its account!
 
-Note: if you change your .env file, run 'docker-compose up -d' to recreate the container, then wait until the container is 'healthy' again ('docker ps')
+Note: if you change your .env file, run `docker compose up -d` to recreate the container, then wait until the container is 'healthy' again ('docker ps')
 ```
 ./do_post_setup.sh
 ```

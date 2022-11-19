@@ -15,8 +15,8 @@ then
 	TARGETDIR=${TARGETDIR%/}
 	TARGETDIR=${TARGETDIR}/
 
-	echo "-> docker-compose down"
-	docker-compose down
+	echo "-> docker compose down"
+	docker compose down
 
 	# loop through each volume
 	for VOLUME in gitlab_config gitlab_logs gitlab_data gitlab_lfs
@@ -25,8 +25,8 @@ then
 		docker run -i --rm --name="docker_volume_restore_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup restore -f -c none < ${TARGETDIR}backup_$VOLUME.tar # -f = force, '-c none' = no compression
 	done
 
-	echo "-> docker-compose up -d"
-	docker-compose up -d
+	echo "-> docker compose up -d"
+	docker compose up -d
 
 	# show how much time this took...
 	DURATION=$(( SECONDS - START ))

@@ -12,8 +12,8 @@ TARGETDIR=${TARGETDIR}/
 # Create the targetdir (will be ignored if it already exists)
 mkdir -p $TARGETDIR
 
-echo "-> docker-compose down"
-docker-compose down
+echo "-> docker compose down"
+docker compose down
 
 # loop through each volume
 for VOLUME in gitlab_config gitlab_logs gitlab_data gitlab_lfs
@@ -22,8 +22,8 @@ do
 	docker run --rm --name="docker_volume_backup_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup backup -c none > ${TARGETDIR}backup_$VOLUME.tar # '-c none' = no compression
 done
 
-echo "-> docker-compose up -d"
-docker-compose up -d
+echo "-> docker compose up -d"
+docker compose up -d
 
 
 # show how much time this took...
