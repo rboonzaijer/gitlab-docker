@@ -14,9 +14,9 @@ Create the .env file, and use your OWN data
 cp .env.example .env
 ```
 
-Make each 'do_{name}.sh' file executable
+Make each '{file}.sh' file executable
 ```
-chmod +x do_*.sh
+chmod +x *.sh
 ```
 
 
@@ -39,7 +39,7 @@ You will get a test-mail when it's completed (or an error if you did not change 
 
 Note: if you change your .env file, run `docker compose up -d` to recreate the container, then wait until the container is 'healthy' again ( `docker ps --filter "name=gitlab"` )
 ```
-./do_post_setup.sh
+./post_setup.sh
 ```
 After this command: refresh the UI and the warning is gone. Also, you've got a mail if SMTP was properly configured.
 
@@ -55,13 +55,13 @@ We want to backup the data in the volumes. These files will be created:
 ## Backup
 This will shut down the container, create backups from the volumes, and then run the container again:
 ```
-./do_backup.sh ./../my_backup_dir/
+./volumes_backup.sh ./../my_backup_dir/
 ```
 
 ## Restore
 This will shut down the container, restore (overwrite!) the backup files into the volumes, and start the container again.
 ```
-./do_restore.sh ./../my_backup_dir/
+./volumes_restore.sh ./../my_backup_dir/
 ```
 
 # 5. Update to latest gitlab
