@@ -29,7 +29,7 @@ Now wait until the container status is 'healty' (might take about 4 minutes on a
 
 You can keep checking the status with:
 ```
-docker ps
+docker ps --filter "name=gitlab"
 ```
 When you see (healthy) in the status column, then Gitlab is running: http://localhost:30000 user=root, pass=(see .env file)
 
@@ -37,7 +37,7 @@ Notice the warning "Anyone can register for an account.", you can run the post_s
 
 You will get a test-mail when it's completed (or an error if you did not change the 'test_email_to', of misconfigured your smtp settings). Note: the default user gets an email to confirm its account!
 
-Note: if you change your .env file, run `docker compose up -d` to recreate the container, then wait until the container is 'healthy' again ('docker ps')
+Note: if you change your .env file, run `docker compose up -d` to recreate the container, then wait until the container is 'healthy' again ( `docker ps --filter "name=gitlab"` )
 ```
 ./do_post_setup.sh
 ```

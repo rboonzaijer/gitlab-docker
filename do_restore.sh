@@ -28,6 +28,9 @@ then
 	echo "-> docker compose up -d"
 	docker compose up -d
 
+	echo "-> docker ps --filter \"name=gitlab\""
+	docker ps --filter "name=gitlab"
+
 	# show how much time this took...
 	DURATION=$(( SECONDS - START ))
 	if (( $DURATION > 3600 )) ; then
