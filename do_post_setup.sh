@@ -22,6 +22,16 @@ docker exec -it gitlab gitlab-rails runner "
 		user.save!
 	end
 
+	# Create a user
+	User.create(
+		:name => '${defaultuser_name}',
+		:username => '${defaultuser_username}',
+		:email => '${defaultuser_email}',
+		:password => '${defaultuser_password}',
+		:password_confirmation => '${defaultuser_password}',
+		:admin => '${defaultuser_admin}'
+	)
+
 	# Send a test mail
 	Notify.test_email('${test_email_to}', 'Gitlab server is configured!', 'This message means your gitlab server is configured!').deliver_now
 "

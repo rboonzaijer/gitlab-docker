@@ -43,6 +43,7 @@ Note: if you change your .env file, run 'docker-compose up -d' to recreate the c
 ```
 After this command: refresh the UI and the warning is gone. Also, you've got a mail if SMTP was properly configured.
 
+Hint (optional): You can also do any manual changes directly in the gitlab-rails console with: `docker exec -it gitlab gitlab-rails console`
 
 # 4. Backup/Restore
 We want to backup the data in the volumes. These files will be created:
