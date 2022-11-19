@@ -65,5 +65,5 @@ This will shut down the container, restore (overwrite!) the backup files into th
 # 5. Update to latest gitlab
 ```
 docker compose pull
-docker compose up -d
+docker compose up -d --remove-orphans
 ```
