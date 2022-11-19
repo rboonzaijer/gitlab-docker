@@ -19,7 +19,7 @@ docker-compose down
 for VOLUME in gitlab_config gitlab_logs gitlab_data gitlab_lfs
 do
     echo "-> backup volume $VOLUME"
-	docker run --rm --name="docker_volume_backup_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup backup > ${TARGETDIR}backup_$VOLUME.tar.bz2
+	docker run --rm --name="docker_volume_backup_$VOLUME" -v $VOLUME:/volume --log-driver none loomchild/volume-backup backup -c none > ${TARGETDIR}backup_$VOLUME.tar # '-c none' = no compression
 done
 
 echo "-> docker-compose up -d"

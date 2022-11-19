@@ -46,9 +46,10 @@ After this command: refresh the UI and the warning is gone. Also, you've got a m
 
 # 4. Backup/Restore
 We want to backup the data in the volumes. These files will be created:
-- backup_gitlab_config.tar.bz2
-- backup_gitlab_logs.tar.bz2
-- backup_gitlab_data.tar.bz2
+- backup_gitlab_config.tar
+- backup_gitlab_logs.tar
+- backup_gitlab_data.tar
+- backup_gitlab_lfs.tar
 
 ## Backup
 This will shut down the container, create backups from the volumes, and then run the container again:
