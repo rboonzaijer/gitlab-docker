@@ -70,6 +70,13 @@ docker compose pull
 docker compose up -d --remove-orphans
 ```
 
+You might want to remove old images, show all images with `docker images`
+
+To remove an old unused image:
+```
+docker rmi gitlab/gitlab-ee:15.5.3-ee.0
+```
+
 # 6. Add runners
 ```
 ./gitlab_runners_create.sh
