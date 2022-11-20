@@ -69,3 +69,10 @@ This will shut down the container, restore (overwrite!) the backup files into th
 docker compose pull
 docker compose up -d --remove-orphans
 ```
+
+# 6. Add runners
+```
+./gitlab_runners_create.sh
+
+./gitlab_runners_register.sh
+```
